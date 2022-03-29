@@ -1,0 +1,36 @@
+<!--
+  @description       : Reusable SoftValidations component to display advisory field conditions
+  @author            : david.bradburn@hyphen8.com
+
+  Modifications Log 
+  Ver   Date         Author                         Modification
+  1.0   20-02-2022   david.bradburn@hyphen8.com     Initial Version
+-->
+
+<template>
+    <template if:true={hasMessages}>
+        <div class="slds-notify_container slds-is-relative" style="z-index:0">
+            <div class={alertStyling} role="alert">
+
+                <!-- Validation Icon -->
+                <div class="slds-notify__content slds-float_left slds-m-right_medium">
+                    <lightning-icon icon-name={validationIcon} alternative-text="Connected" size="small" title="small size">
+                    </lightning-icon> 
+                </div>
+
+                <!-- Validation Title -->
+                <div class="slds-notify__content slds-float_left">
+                    <h2 class="slds-text-heading_medium ">{notificationTitle}</h2>
+                </div>
+                <div style="clear:both;"></div>
+
+                <!-- Validation Message Output -->
+                <template if:true={validationMessage}>
+                    <div class="slds-notify__content slds-align_absolute-center slds-m-bottom_small slds-m-top_large ">
+                        <div id="messageoutput" class="slds-text-heading_small slds-text-body_regular">{validationMessage}</div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </template>
+</template>
